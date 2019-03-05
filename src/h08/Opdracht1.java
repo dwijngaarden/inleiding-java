@@ -6,7 +6,8 @@ import java.awt.event.*;
 
 
 public class Opdracht1 extends Applet {
-    Button knop;
+    Button okknop;
+    Button resetknop;
     TextField tekstvak;
 Label label;
 String s;
@@ -14,19 +15,19 @@ String schermtekst;
 
     public void init() {
 schermtekst="  ";
-        knop = new Button("Ok");
-        KnopListener kl = new KnopListener();
-        knop.addActionListener( kl );
-        add(knop);
+        okknop = new Button("Ok");
+        okknopListener  kl = new okknopListener();
+        okknop.addActionListener( kl );
+        add(okknop);
         tekstvak = new TextField("",20);
         add(tekstvak);
         label = new Label("typ iets in het tekstvakje");
         add(label);
         add(tekstvak);
-        knop = new Button("reset");
-        KnopListener K2 = new KnopListener();
-        knop.addActionListener( K2 );
-        add(knop);
+        resetknop = new Button("reset");
+        resetknopListener K2 = new resetknopListener();
+        resetknop.addActionListener( K2 );
+        add(resetknop);
         s = "";
 
     }
@@ -37,10 +38,10 @@ schermtekst="  ";
 
     }
 
-    class KnopListener implements ActionListener	{
+    class okknopListener implements ActionListener	{
         public void actionPerformed( ActionEvent e ) {
             s = tekstvak.getText();
-            repaint();
+
            tekstvak.setText(" ");
 
 
@@ -50,6 +51,15 @@ schermtekst="  ";
         }
 
     }
+    class resetknopListener implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+            s = tekstvak.getText();
 
+            
+
+
+            repaint();
+        }
+    }
 
     }
