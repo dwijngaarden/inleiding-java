@@ -55,7 +55,7 @@ schermtekst="  ";
         public void actionPerformed(ActionEvent e) {
             s = tekstvak.getText();
 
-            
+
 
 
             repaint();
