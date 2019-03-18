@@ -12,8 +12,7 @@ public class Opdracht2 extends Applet {
     TextField tekstvak;
     int maxvalue;
     int minvalue;
-
-
+    boolean firstNumber = true;
 
 
     public void init() {
@@ -38,16 +37,19 @@ public class Opdracht2 extends Applet {
 
     class tekstvakListener implements ActionListener{
         public void actionPerformed(ActionEvent e) {
-            int Newnumber = Integer.parseInt(tekstvak.getText());
+            int newNumber = Integer.parseInt(tekstvak.getText());
 
-            if (Newnumber > maxvalue) {
-                maxvalue = Newnumber;
-            }
-            else minvalue = Newnumber    ;
-
-
-            if (Newnumber < minvalue){
-                minvalue = Newnumber;
+            if (firstNumber) {
+                maxvalue = newNumber;
+                minvalue = newNumber;
+                firstNumber = false;
+            } else {
+                if (newNumber > maxvalue) {
+                    maxvalue = newNumber;
+                }
+                if (newNumber < minvalue){
+                    minvalue = newNumber;
+                }
             }
 
 
